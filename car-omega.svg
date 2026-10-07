@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 160">
+  <defs>
+    <linearGradient id="bgo" x1="0" x2="1">
+      <stop offset="0" stop-color="#111310"/>
+      <stop offset="1" stop-color="#1d2320"/>
+    </linearGradient>
+    <linearGradient id="bodyo" x1="0" x2="1">
+      <stop offset="0" stop-color="#dfe6d8"/>
+      <stop offset="0.45" stop-color="#8b98a0"/>
+      <stop offset="1" stop-color="#4f5f66"/>
+    </linearGradient>
+  </defs>
+  <rect width="220" height="160" rx="20" fill="url(#bgo)"/>
+  <ellipse cx="110" cy="120" rx="74" ry="22" fill="rgba(0,0,0,.35)"/>
+  <g transform="translate(0 8)">
+    <path d="M32 108 L62 74 L103 51 L142 54 L176 80 L188 108 L32 108 Z" fill="url(#bodyo)"/>
+    <path d="M76 74 L100 61 L134 61 L157 78 L89 78 Z" fill="rgba(255,255,255,.28)"/>
+    <path d="M88 88 L110 88 L121 106 L80 106 Z" fill="#0c1416"/>
+    <path d="M72 106 L84 90 L100 90 L106 106 Z" fill="#eff9ff" fill-opacity="0.8"/>
+    <path d="M115 90 L133 90 L145 106 L120 106 Z" fill="#eff9ff" fill-opacity="0.8"/>
+    <circle cx="70" cy="108" r="13" fill="#101418" stroke="#dfe6d8" stroke-width="2"/>
+    <circle cx="150" cy="108" r="13" fill="#101418" stroke="#dfe6d8" stroke-width="2"/>
+    <circle cx="70" cy="108" r="5" fill="#dfe6d8"/>
+    <circle cx="150" cy="108" r="5" fill="#dfe6d8"/>
+  </g>
+</svg>

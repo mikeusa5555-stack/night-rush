@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="uz">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+		<meta name="theme-color" content="#101416" />
+		<meta name="description" content="Neon yo'llarda tezlikni his qil. Yengil arcade poyga o'yini." />
+		<link rel="manifest" href="manifest.json" />
+		<link rel="icon" href="icon.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Night Run: Street Rush</title>
+	</head>
+	<body>
+		<main class="game-shell">
+			<header class="topbar">
+				<a class="brand" href="#" aria-label="Night Run bosh sahifa">
+					<span class="brand-mark">NR</span>
+					<span class="brand-name">NIGHT<span>RUN</span></span>
+				</a>
+				<div class="top-stats">
+					<div class="top-stat"><span class="stat-label">ENG YAXSHI</span><strong id="best-score">000000</strong></div>
+					<button class="icon-button" id="home-button" aria-label="Bosh sahifaga qaytish" title="Bosh sahifaga qaytish" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9"/><path d="M9 21v-7h6v7"/></svg></button>
+					<button class="icon-button" id="sound-toggle" aria-label="Ovoz" title="Ovoz">♪</button>
+				</div>
+			</header>
+
+			<section class="game-stage" aria-label="Poyga maydoni">
+				<canvas id="game-canvas" aria-label="Night Run poyga o'yini"></canvas>
+				<canvas id="parking-canvas" aria-label="3D parkovka maydoni" hidden></canvas>
+
+				<div class="race-hud" id="race-hud" hidden>
+					<div class="hud-left">
+						<div class="speed-readout"><strong id="speed">000</strong><span>KM/H</span></div>
+						<div class="gear-readout">VITES <strong id="gear">1</strong></div>
+					</div>
+					<div class="hud-right">
+						<div class="race-distance"><span>MASOFA</span><strong id="distance">0.00 <small>KM</small></strong></div>
+						<div class="nitro-meter"><span>NITRO</span><div class="meter-track"><i id="nitro-fill"></i></div></div>
+					</div>
+					<button class="pause-button" id="pause-button" aria-label="Pauza">Ⅱ</button>
+				</div>
+
+				<div class="parking-hud" id="parking-hud" hidden>
+					<div class="parking-speed"><strong id="parking-speed">00</strong><span>KM/H</span><button class="gear-toggle" id="parking-gear" aria-label="Orqaga uzatmaga o'tish" title="D / R uzatma">D</button></div>
+					<div class="parking-objective" id="parking-objective">YASHIL JOYGA PARK QILING</div>
+					<button class="hud-action-button" id="parking-camera" aria-label="Kamera burchagini almashtirish">CAM</button>
+					<button class="pause-button" id="parking-pause" aria-label="Pauza">Ⅱ</button>
+				</div>
+
+				<div class="screen-panel" id="start-screen">
+					<div class="scene-ambient" aria-hidden="true">
+						<span class="ambient-orb orb-left"></span>
+						<span class="ambient-orb orb-right"></span>
+						<span class="ambient-grid"></span>
+					</div>
+					<div class="intro-flash" id="intro-flash" aria-hidden="true"></div>
+					<div class="eyebrow"><span class="eyebrow-line"></span> NO RULES. JUST ROAD.</div>
+					<div class="mode-switch" role="group" aria-label="O'yin rejimi">
+						<button class="mode-option is-selected" data-game-mode="street" aria-pressed="true">STREET RUN</button>
+						<button class="mode-option" data-game-mode="parking" aria-pressed="false">PARKING</button>
+					</div>
+					<h1 id="start-title">OWN THE<br /><em>NIGHT.</em></h1>
+					<p class="panel-copy" id="start-copy">Shahar uyg'oq. Trassa seniki. Trafik orasidan o't va nitroni vaqtida bos.</p>
+					<div class="cinematic-showcase" aria-label="Premium garage showcase">
+						<div class="showcase-glow"></div>
+						<div class="showcase-tag">ULTRA / 3D / RENDER</div>
+						<img class="showcase-car" id="showcase-car" src="car-m3-inspired.svg" alt="NOVA GT showcase" />
+					</div>
+					<div class="garage-picker" aria-label="Avtomobil tanlash">
+						<button class="garage-arrow" id="car-previous" aria-label="Oldingi avtomobil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+						<img class="garage-car-preview" id="car-preview" src="car-m3-inspired.svg" alt="NOVA GT avtomobili yuqoridan ko'rinishi" />
+						<div class="garage-car-info">
+							<span class="garage-car-index" id="car-index">GARAGE / 01</span>
+							<h2 id="car-name">NOVA GT</h2>
+							<p id="car-category">TRACK COUPE · AWD</p>
+							<div class="car-stat"><span>TEZLIK</span><i><b id="car-speed-stat" style="--stat: .84"></b></i></div>
+							<div class="car-stat"><span>TUTISH</span><i><b id="car-grip-stat" style="--stat: .76"></b></i></div>
+						</div>
+						<button class="garage-arrow" id="car-next" aria-label="Keyingi avtomobil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+					</div>
+					<div class="graphics-setting">
+						<span>GRAFIKA</span>
+						<div class="graphics-switch" role="group" aria-label="Grafika sifati">
+							<button data-quality="low" aria-pressed="true">YENGIL</button>
+							<button data-quality="high" aria-pressed="false">BATAFSIL</button>
+						</div>
+					</div>
+					<div class="start-row">
+						<button class="primary-button" id="start-button"><span>POYGANI BOSHLASH</span><b>→</b></button>
+						<span class="record-note">REKORD <strong id="menu-best">000000</strong></span>
+					</div>
+					<div class="key-hint"><span>←</span><span>→</span><i>YO'NALISH</i><span class="key-space">SPACE</span><i>NITRO</i></div>
+				</div>
+
+				<div class="screen-panel result-panel" id="result-screen" hidden>
+					<div class="eyebrow"><span class="eyebrow-line"></span> RUN COMPLETE</div>
+					<h2 id="result-title">YAXSHI<br /><em>URINISH.</em></h2>
+					<p class="panel-copy" id="result-copy">Masofa va tezlik</p>
+					<button class="primary-button" id="retry-button"><span>YANA BIR MARTA</span><b>↻</b></button>
+				</div>
+
+				<div class="pause-overlay" id="pause-screen" hidden>
+					<div class="eyebrow"><span class="eyebrow-line"></span> ENGINE IDLING</div>
+					<h2>PAUZA</h2>
+					<button class="primary-button" id="resume-button"><span>DAVOM ETISH</span><b>→</b></button>
+				</div>
+
+				<div class="touch-controls" id="touch-controls" aria-label="Sensorli boshqaruv">
+					<div class="steering-controls">
+						<button class="drive-button steer-button" data-control="left" aria-label="Chapga burilish">←</button>
+						<button class="drive-button steer-button" data-control="right" aria-label="O'ngga burilish">→</button>
+					</div>
+					<div class="action-controls">
+						<button class="drive-button nitro-button" data-control="nitro" aria-label="Nitro"><span>»</span><small>NITRO</small></button>
+						<button class="drive-button throttle-button" data-control="accelerate" aria-label="Tezlashish"><span>↑</span><small>GAZ</small></button>
+					</div>
+				</div>
+
+				<div class="parking-controls" id="parking-controls" aria-label="Parkovka boshqaruvi" hidden>
+					<div class="steering-controls">
+						<button class="drive-button steer-button" data-control="left" aria-label="Chapga burilish">←</button>
+						<button class="drive-button steer-button" data-control="right" aria-label="O'ngga burilish">→</button>
+					</div>
+					<div class="parking-pedals">
+						<button class="drive-button parking-pedal brake-pedal" data-control="brake" aria-label="Tormoz"><span>↓</span><small>TORMOZ</small></button>
+						<button class="drive-button parking-pedal throttle-pedal" data-control="accelerate" aria-label="Gaz"><span>↑</span><small>GAZ</small></button>
+					</div>
+				</div>
+
+				<div class="stage-caption"><span>SEKTOR 01</span><span>NEON DISTRICT <i>///</i> 02:17 AM</span></div>
+			</section>
+
+			<footer class="bottom-bar">
+				<div class="garage-readout"><span class="car-dot"></span><div><small>M3 GTR-INSPIRED / TRACK SPEC</small><strong>GT-R STREET COUPE</strong></div></div>
+				<div class="footer-center"><span class="live-dot"></span> LIVE FROM THE CITY</div>
+				<div class="footer-version">ARCADE BUILD <span>01.04</span></div>
+			</footer>
+		</main>
+		<script src="script.js?v=6" defer></script>
+	</body>
+</html>

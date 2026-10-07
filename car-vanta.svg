@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 440" role="img" aria-labelledby="title">
+  <title id="title">Vanta RS original rally sedan, top view</title>
+  <defs>
+    <linearGradient id="paint" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#354d78"/><stop offset=".2" stop-color="#527fb9"/><stop offset=".52" stop-color="#8ab2d8"/><stop offset=".78" stop-color="#5181bc"/><stop offset="1" stop-color="#354c73"/></linearGradient>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#80999a"/><stop offset=".5" stop-color="#30464c"/><stop offset="1" stop-color="#172127"/></linearGradient>
+  </defs>
+  <ellipse cx="128" cy="225" rx="93" ry="193" fill="#000" opacity=".47"/>
+  <g fill="#101416"><path d="M30 90q-14 2-14 18v45q0 15 14 17l23-9V98z"/><path d="M226 90q14 2 14 18v45q0 15-14 17l-23-9V98z"/><path d="M30 271q-14 2-14 18v44q0 15 14 17l23-9v-61z"/><path d="M226 271q14 2 14 18v44q0 15-14 17l-23-9v-61z"/></g>
+  <path d="M128 18q-39 0-57 29L51 87l-8 63 7 38-7 47 8 72 16 57q18 34 61 49 43-15 61-49l16-57 8-72-7-47 7-38-8-63-20-40q-18-29-57-29Z" fill="url(#paint)" stroke="#19232e" stroke-width="5"/>
+  <path d="M70 75q58-22 116 0l11 49q-63 17-138 0z" fill="#d4e2ec" opacity=".4"/>
+  <path d="M81 82q47-15 94 0l8 32q-55 13-110 0z" fill="url(#glass)"/>
+  <path d="M74 143q54-13 108 0l9 73q-63 17-126 0z" fill="#5177a6" stroke="#344f76" stroke-width="2"/>
+  <path d="M81 151q47-12 94 0l7 49q-54 13-108 0z" fill="url(#glass)"/>
+  <path d="M94 153q13-4 27-4l-9 50q-13 1-26-2z" fill="#e4eee6" opacity=".2"/>
+  <path d="M66 222q62 15 124 0l-8 17q-54 14-108 0z" fill="#293b55"/>
+  <path d="M77 248q51 14 102 0l-5 40q-46 13-92 0z" fill="#496f9d"/>
+  <path d="M84 254q44 11 88 0l-4 25q-40 10-80 0z" fill="url(#glass)"/>
+  <path d="M83 33h19l-21 349h-16z" fill="#f1bf67"/>
+  <path d="M117 27h22v361h-22z" fill="#e9edf0" opacity=".89"/>
+  <path d="M154 33h19l21 349h-16z" fill="#f1bf67"/>
+  <path d="M47 99h17v45H47zM192 99h17v45h-17z" fill="#e8eddd"/>
+  <path d="M49 330h23v16H49zM184 330h23v16h-23z" fill="#ff594a"/>
+  <path d="M54 355q74 18 148 0l-10 28q-64 23-128 0z" fill="#252c32" stroke="#101519" stroke-width="4"/>
+  <path d="M67 365q61 14 122 0l-7 12q-54 17-108 0z" fill="#111719"/>
+  <path d="M46 389q82 18 164 0l14 16q-89 22-192 0z" fill="#1e272c" stroke="#101416" stroke-width="4"/>
+  <path d="M58 393v-17h11v19M187 393v-17h11v19" fill="#374752"/>
+  <path d="M59 389q69 13 138 0" stroke="#f1bf67" stroke-width="3"/>
+  <path d="M80 128q48 12 96 0M86 296q42 10 84 0" fill="none" stroke="#dce7ed" stroke-width="2" opacity=".55"/>
+  <path d="M119 179h18v19h-18z" fill="#e8edf0" opacity=".88"/>
+  <text x="128" y="193" text-anchor="middle" fill="#202e3d" font-family="sans-serif" font-size="11" font-weight="800">12</text>
+</svg>
